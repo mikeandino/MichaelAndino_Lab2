@@ -27,17 +27,17 @@ public class Aplication {
                 + "Ingrese una opcion."));
         switch (opcion) {
             case 1:
-                amigos();
+                addamigos();
                 break;
             case 2:
-
+                solicitudes();
                 break;
             default:
                 throw new AssertionError();
         }
     }
 
-    public void amigos() {
+    public void addamigos() {
         String lista = "";
         for (Object t : usuarios) {
             if (t instanceof Usuario) {
@@ -45,8 +45,19 @@ public class Aplication {
             }
         }
         int amigo = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario cual desea mandar una solicitud.")) - 1;
-        usuarios.get(amigo).solicitudes.add(new Solicitudes(usuarios.get(amigo).getNombre(),user.getNombre(),"Pendiente"));
-        user.solicitudes.add(new Solicitudes(usuarios.get(amigo).getNombre(),user.getNombre(),"Esperando"));
-        
+        usuarios.get(amigo).addsolicitud(usuarios.get(amigo).getNombre(),user.getNombre(),"Pendiente");
+        user.addsolicitud(usuarios.get(amigo).getNombre(),user.getNombre(),"Esperando");
+        JOptionPane.showMessageDialog(null, "La solicitud para "+usuarios.get(amigo).getNombre()+"a sido enviada.");
+        menu();
+    }
+
+    private void solicitudes() {
+        String lista = "";
+        for (Object t : user.solicitudes) {
+            if (t instanceof Usuario) {
+                lista += (user.solicitudes.indexOf(t) + 1) + "- " + t.toString() + "\n";
+            }
+        }
+        int user = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario que desea eliminar.")) - 1;
     }
 }

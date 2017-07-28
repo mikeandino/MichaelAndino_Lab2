@@ -10,7 +10,7 @@ public class Usuario {
     public String pass; 
     public ArrayList amigos;
     public ArrayList mensajes;
-    public ArrayList<Solicitudes> solicitudes;
+    public ArrayList<Solicitudes> solicitudes = new ArrayList();
 
     public Usuario(String nombre, int edad, String lugar, String username, String pass) {
         this.nombre = nombre;
@@ -58,6 +58,14 @@ public class Usuario {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+    
+    public void addsolicitud(String receptor,String emisor, String estado) {
+        solicitudes.add(new Solicitudes(receptor,emisor, estado));
+    }
+    
+    public int getSolicitudlength() {
+        return solicitudes.size()-1;
     }
 
     @Override

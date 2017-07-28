@@ -37,7 +37,7 @@ public class Solicitudes {
 
     @Override
     public String toString() {
-        return "Solicitudes{" + "receptor=" + receptor + ", emisor=" + emisor + ", estado=" + estado + '}';
+        return emisor + " quiere ser tu amigo!";
     }
     
 }
