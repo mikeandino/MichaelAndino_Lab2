@@ -7,9 +7,8 @@ import javax.swing.JOptionPane;
 public class Laboratorio2 {
 
     static Scanner sc = new Scanner(System.in);
-
     static ArrayList<Usuario> usuarios = new ArrayList();
-
+    
     public static void main(String[] args) {
         crear();
     }
@@ -39,8 +38,11 @@ public class Laboratorio2 {
             case 5:
                 listar();
                 break;
+            case 6:
+                break;
             default:
                 System.out.println("Opcion invalida!");
+                menu();
         }
     }
 
@@ -66,7 +68,7 @@ public class Laboratorio2 {
                 lista += (usuarios.indexOf(t) + 1) + "- " + ((Usuario) t).getNombre() + "\n";
             }
         }
-        int user = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario a modificar.")) + 1;
+        int user = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario a modificar.")) - 1;
         int cambio = Integer.parseInt(JOptionPane.showInputDialog("1: Nombre\n"
                 + "2: Edad\n"
                 + "3: Lugar\n"
@@ -112,7 +114,7 @@ public class Laboratorio2 {
                 lista += (usuarios.indexOf(t) + 1) + "- " + ((Usuario) t).getNombre() + "\n";
             }
         }
-        int user = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario que desea eliminar.")) + 1;
+        int user = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario que desea eliminar.")) - 1;
         usuarios.remove(user);
         menu();
     }
@@ -120,15 +122,17 @@ public class Laboratorio2 {
     static void login() {
         String user = JOptionPane.showInputDialog("Ingrese su usuario.");
         String pass = JOptionPane.showInputDialog("Ingrese su password.");
+        int index=0;
         boolean verificar=false;
         for (Usuario usuario : usuarios) {
             if (user.equals(usuario.getUsername()) && pass.equals(usuario.getPass())) {
+                index=usuarios.indexOf(usuario);
                 verificar = true;
             }
         }
         if (verificar) {
-            //Remplazar!
-            JOptionPane.showMessageDialog(null, "Si");
+            Aplication app = new Aplication(usuarios,usuarios.get(index));
+            app.menu();
         }else{
             //Remplazar!
             JOptionPane.showMessageDialog(null, "Usuario/Password incorrecta.");

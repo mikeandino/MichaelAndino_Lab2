@@ -10,6 +10,7 @@ public class Usuario {
     public String pass; 
     public ArrayList amigos;
     public ArrayList mensajes;
+    public ArrayList<Solicitudes> solicitudes;
 
     public Usuario(String nombre, int edad, String lugar, String username, String pass) {
         this.nombre = nombre;
@@ -67,6 +68,5 @@ public class Usuario {
                 + "\n     Usuario: " + username 
                 + "\n     Password: " + pass;
     }
-    
     
 }
