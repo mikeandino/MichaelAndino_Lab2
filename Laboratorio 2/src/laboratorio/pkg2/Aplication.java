@@ -32,8 +32,23 @@ public class Aplication {
             case 2:
                 solicitudes();
                 break;
+            case 3:
+                mensajes();
+                break;
+            case 4:
+                buzon();
+                break;
+            case 5:
+                eliminarmens();
+                break;
+            case 6:
+                eliminaramigo();
+                break;
+            case 7:
+                break;
             default:
-                throw new AssertionError();
+                System.out.println("Opcion invalida!");
+                menu();
         }
     }
 
@@ -54,10 +69,28 @@ public class Aplication {
     private void solicitudes() {
         String lista = "";
         for (Object t : user.solicitudes) {
-            if (t instanceof Usuario) {
                 lista += (user.solicitudes.indexOf(t) + 1) + "- " + t.toString() + "\n";
-            }
         }
-        int user = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario que desea eliminar.")) - 1;
+        int opcion = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index de la solicitud que desea ver.")) - 1;
+        char resp = JOptionPane.showInputDialog("Deseas añadir a "+user.solicitudes.get(opcion).getEmisor()+" en tus amigos? [s/n]").toLowerCase().charAt(0);
+        if (resp=='s') {
+            
+        }
+    }
+
+    private void buzon() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void mensajes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void eliminarmens() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void eliminaramigo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

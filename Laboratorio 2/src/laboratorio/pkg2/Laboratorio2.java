@@ -64,9 +64,7 @@ public class Laboratorio2 {
     static void modificar() {
         String lista = "";
         for (Object t : usuarios) {
-            if (t instanceof Usuario) {
                 lista += (usuarios.indexOf(t) + 1) + "- " + ((Usuario) t).getNombre() + "\n";
-            }
         }
         int user = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario a modificar.")) - 1;
         int cambio = Integer.parseInt(JOptionPane.showInputDialog("1: Nombre\n"
@@ -110,9 +108,7 @@ public class Laboratorio2 {
     static void eliminar() {
         String lista = "";
         for (Object t : usuarios) {
-            if (t instanceof Usuario) {
                 lista += (usuarios.indexOf(t) + 1) + "- " + ((Usuario) t).getNombre() + "\n";
-            }
         }
         int user = Integer.parseInt(JOptionPane.showInputDialog(lista + "Ingrese el index del usuario que desea eliminar.")) - 1;
         usuarios.remove(user);
@@ -136,16 +132,14 @@ public class Laboratorio2 {
         }else{
             //Remplazar!
             JOptionPane.showMessageDialog(null, "Usuario/Password incorrecta.");
-            menu();
         }
+        menu();
     }
 
     static void listar() {
         String lista = "";
         for (Object t : usuarios) {
-            if (t instanceof Usuario) {
                 lista += (usuarios.indexOf(t) + 1) + "- " + t.toString() + "\n";
-            }
         }
         JOptionPane.showMessageDialog(null, lista);
         menu();

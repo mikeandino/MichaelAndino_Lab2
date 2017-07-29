@@ -12,6 +12,10 @@ public class Usuario {
     public ArrayList mensajes;
     public ArrayList<Solicitudes> solicitudes = new ArrayList();
 
+    public Usuario(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Usuario(String nombre, int edad, String lugar, String username, String pass) {
         this.nombre = nombre;
         this.edad = edad;
